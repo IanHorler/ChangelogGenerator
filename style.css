@@ -5,3 +5,40 @@ h1 {
     text-align: center;
     margin-top: 20px;
 }
+
+main {
+    height: 100%;
+}
+
+textarea {
+    font-family: var(--font-monospaced);
+    font-size: 1em;
+    margin: 30px auto 10px auto;
+    width: calc(50% - 50px);
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
+}
+
+.left {
+    margin-left: 10px;
+}
+
+.right {
+    margin-left: 10px;
+}
+
+.generate {
+    font-family: var(--font-ui);
+    font-size: 1em;
+    margin: auto;
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #4CAF50;
+    color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
