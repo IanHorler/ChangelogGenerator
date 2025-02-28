@@ -1,0 +1,38 @@
+name: Feature request
+description: Request a feature to be added to this project.
+title: '[Feature]: '
+labels:
+  - feature request
+body:
+  - type: textarea
+    attributes:
+      label: What problem are you trying to fix?
+      description: >-
+        Describe the problem that this feature is meant to fix. Leave blank if
+        none.
+  - type: textarea
+    attributes:
+      label: What is your feature idea?
+      description: Describe the feature you had in mind.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What are some alternate features?
+      description: >-
+        Please describe some possible alternate features for if the main feature
+        isn't added.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Any additional context?
+      description: >-
+        This can be more details, screenshots, etc., that does not have its own
+        field above.
+  - type: markdown
+    attributes:
+      value: >-
+        *Please be sure all information provided is accurate and in as much
+        detail as possible. Thank you for making this project better by
+        suggesting features!*
