@@ -1,0 +1,48 @@
+name: Bug report
+description: There's something that is not working as expected.
+title: '[Bug]: '
+labels:
+  - bug
+body:
+  - type: textarea
+    attributes:
+      label: What is the bug?
+      description: Please describe the bug in as much detail as possible.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What is the expected behavior?
+      description: Please describe exactly what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What are the steps for reproducing this bug?
+      description: >-
+        Please provide clear and accurate steps to allow us to reproduce the bug
+        you encountered.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What device are you on?
+      description: 'Example: iPhone 16'
+  - type: input
+    attributes:
+      label: What browser are you using?
+      description: >-
+        Please include the version as well. Example: Google Chrome
+        133.0.6943.142
+  - type: textarea
+    attributes:
+      label: Any additional context?
+      description: >-
+        This can be more details, screenshots, etc., that does not have its own
+        field above.
+  - type: markdown
+    attributes:
+      value: >-
+        *Please be sure all information provided is accurate and in as much
+        detail as possible. Thank you for making this project better by
+        reporting bugs!*
