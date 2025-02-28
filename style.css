@@ -28,6 +28,12 @@ textarea {
     margin-left: 10px;
 }
 
+.output {
+    width: calc(100% - 150px);
+    margin: 30px auto;
+    display: block;
+}
+
 .generate {
     font-family: var(--font-ui);
     font-size: 1em;
@@ -36,7 +42,7 @@ textarea {
     width: calc(100% - 20px);
     padding: 10px;
     border-radius: 10px;
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     outline: none;
     border: none;

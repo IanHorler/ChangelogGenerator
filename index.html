@@ -13,9 +13,25 @@
             <h1>Changelog Generator</h1>
         </header>
         <main>
-            <textarea id="syntax" rows="20" class="left" placeholder="Enter your syntax here..."></textarea>
-            <textarea id="commits" rows="20" class="right" placeholder="Enter your commits here..."></textarea>
-            <button type="submit" id="generate" class="generate" onclick="generate()">Generate</button>
+            <textarea
+                id="syntax"
+                rows="20"
+                class="left"
+                placeholder="Enter your syntax here..."></textarea>
+            <textarea
+                id="commits"
+                rows="20"
+                class="right"
+                placeholder="Enter your commits here..."></textarea>
+            <button type="submit" id="generate" class="generate" onclick="generate()">
+                Generate
+            </button>
+            <textarea
+                id="output"
+                rows="40"
+                class="output"
+                placeholder="Your changelog will appear here..."
+                disabled></textarea>
         </main>
         <script src="script.js"></script>
     </body>

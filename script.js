@@ -104,5 +104,5 @@ function generate() {
         let rule = rules[i];
         result += parseRule(rule).replaceAll("\\n", "\n");
     }
-    console.log(result);
+    document.getElementById("output").value = result;
 }
