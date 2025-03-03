@@ -1,4 +1,28 @@
 :root {
-    --font-ui: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --font-monospaced: 'Courier New', Courier, monospace;
+    --font-ui: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --font-monospaced: "Courier New", Courier, monospace;
+    
+    --background-color: #fff;
+    --text-color: #000;
+    --accent-color: #4caf50;
+    --accent-text: white;
+    --textarea-color: #fff;
+    --textarea-text: #000;
+    --disabled-color: #f1f1f1;
+    --disabled-text: #666;
+    --outline-color: #000;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333;
+        --text-color: #fff;
+        --accent-color: #81c784;
+        --accent-text: #000;
+        --textarea-color: #444;
+        --textarea-text: #fff;
+        --disabled-color: #333;
+        --disabled-text: #999;
+        --outline-color: #fff;
+    }
 }

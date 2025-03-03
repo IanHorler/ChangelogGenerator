@@ -1,3 +1,8 @@
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 h1 {
     font-family: var(--font-ui);
     font-size: 2em;
@@ -18,6 +23,16 @@ textarea {
     border-radius: 10px;
     padding: 15px;
     resize: none;
+    background-color: var(--textarea-color);
+    color: var(--textarea-text);
+}
+
+textarea:focus {
+    outline: var(--outline-color) solid 1px;
+}
+
+textarea::placeholder {
+    color: var(--disabled-text);
 }
 
 .left {
@@ -32,6 +47,13 @@ textarea {
     width: calc(100% - 150px);
     margin: 30px auto;
     display: block;
+    background-color: var(--disabled-color);
+    color: var(--disabled-text);
+    border-radius: 10px;
+    padding: 15px;
+    font-family: var(--font-monospaced);
+    font-size: 1em;
+    resize: none;
 }
 
 .generate {
@@ -42,8 +64,8 @@ textarea {
     width: calc(100% - 20px);
     padding: 10px;
     border-radius: 10px;
-    background-color: #4caf50;
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--accent-text);
     outline: none;
     border: none;
     cursor: pointer;
