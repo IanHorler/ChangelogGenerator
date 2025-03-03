@@ -54,6 +54,7 @@ textarea::placeholder {
     font-family: var(--font-monospaced);
     font-size: 1em;
     resize: none;
+    max-height: calc(100dvh - 100px);
 }
 
 .generate {
