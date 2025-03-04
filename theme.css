@@ -11,6 +11,10 @@
     --disabled-color: #f1f1f1;
     --disabled-text: #666;
     --outline-color: #000;
+    --guide-color: #eee;
+    --guide-text: #000;
+    --code-color: #b7b7b7;
+    --code-text: #000;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,5 +28,9 @@
         --disabled-color: #333;
         --disabled-text: #999;
         --outline-color: #fff;
+        --guide-color: #555;
+        --guide-text: #fff;
+        --code-color: #444;
+        --code-text: #fff;
     }
 }

@@ -9,30 +9,150 @@
         <link rel="stylesheet" href="style.css?v=1" />
     </head>
     <body>
-        <header>
-            <h1>Changelog Generator</h1>
-        </header>
-        <main>
-            <textarea
-                id="syntax"
-                rows="20"
-                class="left"
-                placeholder="Enter your syntax here..."></textarea>
-            <textarea
-                id="commits"
-                rows="20"
-                class="right"
-                placeholder="Enter your commits here..."></textarea>
-            <button type="submit" id="generate" class="generate" onclick="generate()">
-                Generate
-            </button>
-            <textarea
-                id="output"
-                rows="40"
-                class="output"
-                placeholder="Your changelog will appear here..."
-                disabled></textarea>
-        </main>
+        <div id="overlay" class="overlay">
+            <header>
+                <h1>Changelog Generator</h1>
+            </header>
+            <main>
+                <textarea
+                    id="syntax"
+                    rows="20"
+                    class="left"
+                    placeholder="Enter your syntax here..."></textarea>
+                <textarea
+                    id="commits"
+                    rows="20"
+                    class="right"
+                    placeholder="Enter your commits here..."></textarea>
+                <a href="#" class="guide-open" onclick="toggleGuide()">Syntax Guide</a>
+                <button type="submit" id="generate" class="generate" onclick="generate()">
+                    Generate
+                </button>
+                <textarea
+                    id="output"
+                    rows="40"
+                    class="output"
+                    placeholder="Your changelog will appear here..."
+                    disabled></textarea>
+            </main>
+        </div>
+
+        <article id="guide" class="guide">
+            <a href="#" class="guide-close" onclick="toggleGuide()">Close</a>
+            <h2>Syntax Guide</h2>
+            <p>
+                First of all, thank you for using this changelog generator, even just to play around
+                in it. I know the syntax can be a bit confusing, so I've created this guide to help
+                you.
+            </p>
+            <p>
+                The most important thing to know about the syntax is that it's broken up into
+                <b>rules</b>. Every line is it's own rule, and for a rule to have any output it
+                needs to have a <b>string</b>. A string is text that is wrapped inside
+                <b>double quotes</b> (<code>"</code>).
+            </p>
+            <p>For example, if I used a rule such as:</p>
+            <pre><code>"# Changelog"</code></pre>
+            <p>It would output:</p>
+            <pre><code># Changelog</code></pre>
+            <p>
+                But this isn't very exciting, is it? You're just telling it text in a complicated
+                way, only for it to output that exact thing. And how do we put in the commits?
+            </p>
+            <p>
+                This is where <b>conditionals</b> come in. A conditional is a
+                <b>commit type</b> wrapped in square brackets (<code>[</code> and <code>]</code>). A
+                conditional checks for if a commit with that commit type exists, and if it does, it
+                will output the string. However, if it doesn't find any matching commits, that rule
+                will be skipped and you won't get any outputs from it.
+            </p>
+            <p>
+                For example, let's say I want to simply say if there were bugs fixed. I can do
+                something like:
+            </p>
+            <pre><code>[fix] "There was a bug fixed in this update."</code></pre>
+            <p>
+                If no bugs were fixed, it will not output that. But what if I want to say that there
+                were no bugs fixed?
+            </p>
+            <p>
+                To do this, you can simply put an exlamation point (<code>!</code>) before the
+                commit type. This will invert the result and instead of checking if a matching
+                commit exists, it will check if none exist. Let's add on to our previous example:
+            </p>
+            <pre><code>[fix] "There was a bug fixed in this update."
+[!fix] "There were no bugs fixed in this update.</code></pre>
+            <p>
+                But the whole point of changelogs is to say what was changed, right? So how do we do
+                that?
+            </p>
+            <p>
+                If a <b>positive conditional</b> (checking <em>for</em> a commit) is present, you
+                can insert <b>curly brackets</b> (<code>{</code> and <code>}</code>). This will loop
+                through all matching commits and repeat whatever's inside the curly brackets for all
+                commits.
+            </p>
+            <p>
+                On top of this, you can reference the different parts of the commit message by
+                putting it between a less than symbol (<code>&lt;</code>) and a greater than symbol
+                (<code>&gt;</code>). A very simple changelog syntax would look like:
+            </p>
+            <pre><code>"# Changelog\n\n"
+[fix] "## Bug Fixes\n\n{- &lt;description&gt;\n}\n"
+[feat] "## Features\n\n{- &lt;description&gt;\n}\n"
+[!feat] "## Features\n\n*No features were added.*"</code></pre>
+            <p>
+                This will work, but it's not very readable, so it will be hard to make changes to
+                it. To fix this, you can use <b>empty lines</b>. That example above will return the
+                exact same thing as:
+            </p>
+            <pre><code>"# Changelog"
+"\n\n"
+
+[fix] "## Bug Fixes"
+[fix] "{- &lt;description&gt;\n}"
+[fix] "\n"
+
+
+"## Features"
+"\n\n"
+
+[feat] "{- &lt;description&gt;\n}"
+[feat] "\n"
+
+[!feat] "*No features were added.*"</code></pre>
+            <p>
+                As you can see, the second one is much more readable. But what if we could make it
+                even more readable?
+            </p>
+            <p>
+                Well, we can. We know that if there is no string, there will not be any output. This
+                means we can say anything we want outside of a string and conditional, and it will
+                have no effect. Let's rewrite the example using <b>comments</b>.
+            </p>
+            <pre><code>-- TITLE --
+
+"# Changelog"
+"\n\n"
+
+
+-- BUG FIXES --
+
+[fix] "## Bug Fixes" (Title)
+[fix] "{- &lt;description&gt;\n}" (List)
+[fix] "\n"
+
+
+-- FEATURES --
+
+"## Features" (Title)
+"\n\n"
+
+[feat] "{- &lt;description&gt;\n}" (List)
+[feat] "\n"
+
+[!feat] "*No features were added.*" (None)</code></pre>
+        </article>
         <script src="script.js?v=1"></script>
     </body>
 </html>

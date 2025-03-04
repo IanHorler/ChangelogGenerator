@@ -106,3 +106,10 @@ function generate() {
     }
     document.getElementById("output").value = result;
 }
+
+function toggleGuide() {
+    const guide = document.getElementById("guide");
+    const overlay = document.getElementById("overlay");
+    guide.style.display = guide.style.display == "block" ? "none" : "block";
+    overlay.style.display = overlay.classList.toggle("guide-visible");
+}

@@ -11,6 +11,49 @@ h1 {
     margin-top: 20px;
 }
 
+h2 {
+    font-family: var(--font-ui);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+p {
+    font-family: var(--font-ui);
+    font-size: 1em;
+    margin: 10px auto;
+    line-height: 1.5;
+}
+
+p b {
+    font-weight: bold;
+}
+
+p em {
+    font-style: italic;
+}
+
+p code {
+    font-family: var(--font-monospaced);
+    font-size: 1em;
+    background-color: var(--code-color);
+    color: var(--code-text);
+    padding: 2px;
+    border-radius: 5px;
+}
+
+pre code {
+    font-family: var(--font-monospaced);
+    font-size: 1em;
+    background-color: var(--code-color);
+    color: var(--code-text);
+    padding: 10px;
+    border-radius: 10px;
+    display: block;
+    overflow: auto;
+}
+
 main {
     height: 100%;
 }
@@ -70,4 +113,52 @@ textarea::placeholder {
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+.guide {
+    font-family: var(--font-ui);
+    font-size: 1em;
+    margin: 10px auto;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--guide-color);
+    color: var(--guide-text);
+    width: 80dvw;
+    height: 80dvh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    overflow: auto;
+    opacity: 1 !important;
+    display: none;
+}
+
+.guide-visible {
+    opacity: 0.2;
+}
+
+.guide-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.guide-open {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+a {
+    font-family: var(--font-ui);
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
